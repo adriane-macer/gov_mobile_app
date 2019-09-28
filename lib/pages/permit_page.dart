@@ -37,7 +37,8 @@ class _PermitPageState extends State<PermitPage> {
                                 builder: (context) => ImageUploadForm(),
                               ),
                             );
-                            if (result != null && result.runtimeType == File) {
+                            print(result);
+                            if (result != null ) {
                               setState(() {
                                 _image1 = result;
                               });
@@ -52,7 +53,16 @@ class _PermitPageState extends State<PermitPage> {
                           _image1,
                           fit: BoxFit.contain,
                         ),
-
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: FormBuilder(
+                        child: FormBuilderTextField(
+                      attribute: "First name",
+                      decoration: InputDecoration(labelText: "Description"),
+//                onChanged: (_){},
+                      validators: [],
+                    )),
+                  )
                 ],
               ),
             ),
