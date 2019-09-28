@@ -204,7 +204,7 @@ class _BillingScreenState extends State<BillingScreen> {
         content: Text("Thank you for paying your bill."),
         actions: [
           FlatButton(
-            child: Text('Cancel'),
+            child: Text('Ok'),
             onPressed: () {
               Navigator.pop(context, false);
             },
