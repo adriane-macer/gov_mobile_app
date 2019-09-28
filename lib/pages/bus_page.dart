@@ -5,7 +5,7 @@ class BusPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Bus page"),
+        title: Text("Bus route"),
       ),
     );
   }

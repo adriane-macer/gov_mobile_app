@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:gov/blocs/billing_bloc.dart';
-import 'package:gov/blocs/billing_event.dart';
-import 'package:gov/blocs/billing_state.dart';
+import 'package:gov/blocs/billing_bloc/billing_bloc.dart';
+import 'package:gov/blocs/billing_bloc/billing_state.dart';
 import 'package:gov/models/bill.dart';
 import 'package:gov/pages/billing/billing_screen.dart';
 import 'package:provider/provider.dart';
@@ -15,8 +14,7 @@ class BillingPage extends StatelessWidget {
         if (state is BillingLoading || state is BillingUninitialized)
           return Scaffold(body: Center(child: CircularProgressIndicator()));
         if (state is BillingLoaded) {
-          return Provider<List<Bill>>.value(
-              value: state.bills, child: BillingScreen());
+          return BillingScreen();
         }
         if (state is Error) {
           return Scaffold(body: Center(child: Text("Something went wrong")));

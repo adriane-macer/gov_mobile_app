@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
+import 'package:gov/blocs/billing_bloc/billing_bloc.dart';
+import 'package:gov/blocs/billing_bloc/billing_event.dart';
 import 'package:gov/models/bill.dart';
+import 'package:gov/services/data_service.dart';
+import 'package:gov/services/service_locator.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 
@@ -12,7 +17,8 @@ class BillingScreen extends StatefulWidget {
 class _BillingScreenState extends State<BillingScreen> {
   @override
   Widget build(BuildContext context) {
-    final bills = Provider.of<List<Bill>>(context);
+    BillingBloc bloc = BlocProvider.of<BillingBloc>(context);
+    final List<Bill> bills = bloc.bills;
     return Scaffold(
       appBar: AppBar(
         title: Text("Billing page"),
@@ -58,6 +64,26 @@ class _BillingScreenState extends State<BillingScreen> {
                           if (!forPayment) return;
 
                           await _thankYouDialog(context);
+                          Bill b = bills[index];
+                          Bill newBill = Bill(
+                            b.id,
+                            b.category,
+                            b.kind,
+                            b.rate,
+                            b.name,
+                            b.previousReading,
+                            b.presentReading,
+                            b.consumption,
+                            b.start,
+                            b.end,
+                            b.contract,
+                            "paid",
+                          );
+
+                          await locator<DataService>().setBill(newBill);
+
+                          bloc.dispatch(FetchBilling());
+                          return;
                         },
                         child: ListTile(
                           leading: Padding(

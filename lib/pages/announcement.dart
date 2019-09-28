@@ -5,7 +5,7 @@ class AnnouncementPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Announcement page"),
+        title: Text("Disater relief announcement"),
       ),
     );
   }

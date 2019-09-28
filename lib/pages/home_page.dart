@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:gov/blocs/billing_bloc.dart';
-import 'package:gov/blocs/billing_event.dart';
+import 'package:gov/blocs/billing_bloc/billing_bloc.dart';
+import 'package:gov/blocs/billing_bloc/billing_event.dart';
 import 'package:gov/pages/announcement.dart';
 import 'package:gov/pages/billing/billing_page.dart';
-import 'package:gov/pages/billing/billing_screen.dart';
 import 'package:gov/pages/bus_page.dart';
 import 'package:gov/pages/permit_page.dart';
 

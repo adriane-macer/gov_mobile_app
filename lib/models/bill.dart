@@ -1,6 +1,6 @@
-part 'bill.g.dart';
 
 class Bill {
+  final id;
   final category;
   final kind;
   final name;
@@ -11,8 +11,10 @@ class Bill {
   final start;
   final end;
   final contract;
+  final payment;
 
   Bill(
+      this.id,
       this.category,
       this.kind,
       this.name,
@@ -22,9 +24,11 @@ class Bill {
       this.consumption,
       this.start,
       this.end,
-      this.contract);
+      this.contract,
+      this.payment);
 
   factory Bill.fromJson(Map<String, dynamic> json) => Bill(
+        json['id'],
         json['category'],
         json['kind'],
         json['name'],
@@ -35,5 +39,6 @@ class Bill {
         json['start'],
         json['end'],
         json['contract'],
+        json['payment']
       );
 }

@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:bloc/bloc.dart';
-import 'package:gov/blocs/billing_event.dart';
-import 'package:gov/blocs/billing_state.dart';
+import 'package:gov/blocs/billing_bloc/billing_event.dart';
+import 'package:gov/blocs/billing_bloc/billing_state.dart';
 import 'package:gov/models/bill.dart';
 import 'package:gov/services/data_service.dart';
 import 'package:gov/services/service_locator.dart';
