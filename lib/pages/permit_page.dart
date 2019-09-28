@@ -23,7 +23,6 @@ class _PermitPageState extends State<PermitPage> {
                     style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                   ),
 
-
                 ],
               ),
             ),
