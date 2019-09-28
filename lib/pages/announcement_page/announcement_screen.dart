@@ -25,6 +25,7 @@ class _AnnouncementScreenState extends State<AnnouncementScreen> {
               child: Container(
                 child: Column(
                   children: <Widget>[
+                    Image.asset("${announcements[index].mediaPath}", height: 160),
                     Text(
                       "${announcements[index].content}",
                       style:
