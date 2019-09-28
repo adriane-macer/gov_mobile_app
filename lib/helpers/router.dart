@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gov/constants/constants.dart';
-import 'package:gov/pages/announcement.dart';
+import 'package:gov/pages/announcement_page/announcement_page.dart';
 import 'package:gov/pages/billing/billing_page.dart';
 import 'package:gov/pages/bus_page.dart';
 import 'package:gov/pages/permit_page.dart';

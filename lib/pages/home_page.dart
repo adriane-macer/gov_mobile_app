@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:gov/blocs/announcement_bloc/announcement_bloc.dart';
+import 'package:gov/blocs/announcement_bloc/announcement_event.dart';
 import 'package:gov/blocs/billing_bloc/billing_bloc.dart';
 import 'package:gov/blocs/billing_bloc/billing_event.dart';
-import 'package:gov/pages/announcement.dart';
+import 'package:gov/pages/announcement_page/announcement_page.dart';
 import 'package:gov/pages/billing/billing_page.dart';
 import 'package:gov/pages/bus_page.dart';
 import 'package:gov/pages/permit_page.dart';
@@ -55,7 +57,11 @@ class _HomePageState extends State<HomePage> {
       case 2:
         return BusPage();
       case 3:
-        return AnnouncementPage();
+        return BlocProvider(
+          builder: (context) =>
+              AnnouncementBloc()..dispatch(FetchAnnouncement()),
+          child: AnnouncementPage(),
+        );
       default:
         return BlocProvider(
             builder: (context) => BillingBloc()..dispatch(FetchBilling()),
