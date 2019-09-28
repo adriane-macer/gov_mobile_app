@@ -7,7 +7,6 @@ import 'package:gov/models/bill.dart';
 import 'package:gov/services/data_service.dart';
 import 'package:gov/services/service_locator.dart';
 import 'package:intl/intl.dart';
-import 'package:provider/provider.dart';
 
 class BillingScreen extends StatefulWidget {
   @override

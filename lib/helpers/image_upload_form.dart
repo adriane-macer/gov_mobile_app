@@ -1,4 +1,3 @@
-
 import 'dart:io';
 
 import 'package:flutter/material.dart';
@@ -12,7 +11,7 @@ class ImageUploadForm extends StatefulWidget {
 class _ImageUploadFormState extends State<ImageUploadForm> {
   File _image;
 
-  Future getImage() async {
+  Future getImageFromGallery() async {
     var image = await ImagePicker.pickImage(source: ImageSource.gallery);
 
     setState(() {
@@ -23,20 +22,45 @@ class _ImageUploadFormState extends State<ImageUploadForm> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: _image == null
-            ? Icon(
-                Icons.photo_camera,
-                size: MediaQuery.of(context).size.height / 5,
-              )
-            : Image.file(
-                _image,
-                fit: BoxFit.contain,
-              ),
+//      appBar: AppBar(
+//        title: Text("Upload image from gallery"),
+//      ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          InkWell(
+            onTap: () {
+              Navigator.pop(context, _image);
+            },
+            child: Padding(
+              padding: const EdgeInsets.only(top: 30.0),
+              child: ListTile(
+                  leading: Icon(
+                Icons.arrow_back,
+                color: Colors.blue,
+                size: 50,
+              )),
+            ),
+          ),
+          Expanded(
+            child: Center(
+              child: _image == null
+                  ? Icon(
+                      Icons.photo_camera,
+                      size: MediaQuery.of(context).size.height / 5,
+                    )
+                  : Image.file(
+                      _image,
+                      fit: BoxFit.contain,
+                    ),
+            ),
+          ),
+        ],
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: getImage,
-        child: Icon(Icons.add_a_photo),
+        onPressed: getImageFromGallery,
+        child: Icon(Icons.camera),
       ),
     );
   }
